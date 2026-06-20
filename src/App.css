@@ -1,0 +1,117 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ── Header ── */
+.header {
+  padding: 14px 24px 12px;
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.header h1 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.header p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.legend {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.legend-item {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.legend-item.io     { background: #042f2e; color: #5eead4; border: 1px solid #0d9488; }
+.legend-item.agent  { background: #1e1b4b; color: #a5b4fc; border: 1px solid #4338ca; }
+.legend-item.tool   { background: #451a03; color: #fcd34d; border: 1px solid #b45309; }
+.legend-item.memory { background: #2e1065; color: #d8b4fe; border: 1px solid #7e22ce; }
+
+/* ── Canvas ── */
+.canvas { flex: 1; overflow: hidden; }
+
+/* ── Shared node ── */
+.node {
+  padding: 10px 14px;
+  border-radius: 10px;
+  min-width: 148px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+.node:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.7); }
+
+.node-icon  { font-size: 1.5rem; margin-bottom: 4px; }
+.node-label { font-size: 0.8rem; font-weight: 700; color: #f1f5f9; }
+.node-sub   { font-size: 0.67rem; color: #94a3b8; margin-top: 2px; }
+
+.node-badge {
+  position: absolute;
+  top: -9px;
+  right: 8px;
+  background: #312e81;
+  color: #c7d2fe;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 20px;
+  border: 1px solid #4338ca;
+  letter-spacing: 0.04em;
+}
+
+/* ── Variants ── */
+.node-io      { background: #021c1c; border: 1.5px solid #0d9488; }
+.node-io--in  { border-color: #0d9488; }
+.node-io--out { border-color: #059669; }
+
+.node-agent  { background: #0d0b2e; border: 1.5px solid #4338ca; }
+.node-tool   { background: #1c1007; border: 1.5px solid #b45309; }
+.node-memory { background: #16072e; border: 1.5px dashed #7e22ce; }
+
+/* ── React Flow overrides ── */
+.react-flow__edge-path { stroke-width: 2; }
+
+.react-flow__edge-label { font-size: 10px; }
+
+.react-flow__controls {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  fill: #64748b;
+}
+
+.react-flow__controls-button:hover { background: #1e293b; }
+
+.react-flow__minimap {
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  overflow: hidden;
+}
