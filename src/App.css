@@ -23,10 +23,12 @@
   letter-spacing: -0.02em;
 }
 
-.header p {
+.step-label {
   margin: 0;
   font-size: 0.78rem;
-  color: #64748b;
+  color: #94a3b8;
+  min-width: 260px;
+  transition: opacity 0.3s;
 }
 
 .legend {
@@ -51,6 +53,13 @@
 /* ── Canvas ── */
 .canvas { flex: 1; overflow: hidden; }
 
+/* ── Glow keyframe ── */
+@keyframes node-pulse {
+  0%   { box-shadow: 0 0 0px 0px rgba(255,255,255,0.0), 0 4px 20px rgba(0,0,0,0.5); }
+  50%  { box-shadow: 0 0 18px 6px rgba(255,255,255,0.18), 0 4px 20px rgba(0,0,0,0.5); }
+  100% { box-shadow: 0 0 0px 0px rgba(255,255,255,0.0), 0 4px 20px rgba(0,0,0,0.5); }
+}
+
 /* ── Shared node ── */
 .node {
   padding: 10px 14px;
@@ -59,9 +68,21 @@
   text-align: center;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   position: relative;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.3s, border-color 0.3s, opacity 0.3s;
+  opacity: 0.55;
 }
 .node:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.7); }
+
+/* Active node — brighten + glow pulse */
+.react-flow__node.active .node {
+  opacity: 1;
+  animation: node-pulse 0.9s ease-in-out;
+}
+
+.react-flow__node.active .node-io      { border-color: #2dd4bf; box-shadow: 0 0 16px 4px rgba(45,212,191,0.4); }
+.react-flow__node.active .node-agent   { border-color: #818cf8; box-shadow: 0 0 16px 4px rgba(129,140,248,0.45); }
+.react-flow__node.active .node-tool    { border-color: #fbbf24; box-shadow: 0 0 16px 4px rgba(251,191,36,0.4); }
+.react-flow__node.active .node-memory  { border-color: #c084fc; box-shadow: 0 0 16px 4px rgba(192,132,252,0.4); }
 
 .node-icon  { font-size: 1.5rem; margin-bottom: 4px; }
 .node-label { font-size: 0.8rem; font-weight: 700; color: #f1f5f9; }
