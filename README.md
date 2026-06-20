@@ -2,6 +2,8 @@
 
 An interactive visualization of a multi-agent LLM system built with [React Flow](https://reactflow.dev).
 
+![LLM Agent Workflow Animation](llm-agent-animated.gif)
+
 ## What's Shown
 
 A realistic agentic pipeline modeled after frameworks like LangGraph and CrewAI:
@@ -34,6 +36,7 @@ User Message
 - Model badges on agent nodes (GPT-4o, ReAct, Function call)
 - Drag-to-connect to wire new edges interactively
 - MiniMap + Controls + dark theme
+- Step-by-step execution animation — nodes pulse in order with colored glow as data flows through the pipeline
 
 ## Run Locally
 
